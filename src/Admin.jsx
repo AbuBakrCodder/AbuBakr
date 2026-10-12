@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getPostsFile, savePosts, uploadImage } from "../public/github";
+import { getPostsFile, savePosts, uploadImage } from "./github";
 
 
 export default function Admin() {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchPosts } from "../../public/github";
+import { fetchPosts } from "../github";
 
 function BlogCard({ post }) {
   const [open, setOpen] = useState(false);
@@ -12,12 +12,6 @@ function BlogCard({ post }) {
       setClosing(false);
     }, 250);
   };
-
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    fetchPosts().then(setPosts);
-  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -95,6 +89,12 @@ function BlogCard({ post }) {
 }
 
 export default function Blog() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchPosts().then(setPosts);
+  }, []);
+
   return (
     <div>
       {/* Animatsiyalar */}
