@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+.site{
+    max-width: 1920px;
+    height: 100vh;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+.mycontainer{
+    width: 70%;
+    padding: 0 auto;
+}
+
+button {
+    cursor: pointer;
+    transition: 0.8s all;
+}
+
+button:hover{
+    transform: scale(1.2);
+}
