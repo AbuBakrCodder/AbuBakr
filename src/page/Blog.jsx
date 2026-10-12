@@ -1,21 +1,5 @@
 import { useState, useEffect } from "react";
-
-const posts = [
-  {
-    id: 1,
-    title: "Birinchi blogim",
-    date: "11 Oktyabr 2026",
-    text: "Bu yerga blog haqida ma'lumot yoziladi. Xohlagancha uzun bo'lishi mumkin.\n\nYangi qatordan boshlash uchun bitta bo'sh qator qoldiring.",
-    image: "", // rasm bo'lmasa "" qoldiring
-  },
-  {
-    id: 2,
-    title: "Ikkinchi blogim",
-    date: "12 Oktyabr 2026",
-    text: "Ikkinchi blog haqida ma'lumot.",
-    image: "",
-  },
-];
+import { fetchPosts } from "../../public/github";
 
 function BlogCard({ post }) {
   const [open, setOpen] = useState(false);
@@ -28,6 +12,12 @@ function BlogCard({ post }) {
       setClosing(false);
     }, 250);
   };
+
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchPosts().then(setPosts);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
